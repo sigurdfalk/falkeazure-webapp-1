@@ -23,8 +23,8 @@ jobs:
           username: ${{ secrets.REGISTRY_USERNAME }}
           password: ${{ secrets.REGISTRY_PASSWORD }}
       - run: |
-          docker build . -t falkeregistry.azurecr.io/falkewebapp1:${{ github.sha }}
-          docker push falkeregistry.azurecr.io/falkewebapp1:${{ github.sha }}
+          docker build . -t falkeregistry.azurecr.io/falkeazure:${{ github.sha }}
+          docker push falkeregistry.azurecr.io/falkeazure:${{ github.sha }}
       - name: 'Azure logout'
         run: |
           az logout
