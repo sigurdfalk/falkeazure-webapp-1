@@ -28,3 +28,4 @@ jobs:
           registry: falkeregistry.azurecr.io
           repository: falkeazure
           tag_with_ref: true
+          tag_with_sha: true
