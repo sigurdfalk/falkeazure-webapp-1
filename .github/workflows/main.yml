@@ -21,10 +21,10 @@ jobs:
 #      - run: |
 #          docker build . -t falkeregistry.azurecr.io/falkeazure:${{ github.sha }}
 #          docker push falkeregistry.azurecr.io/falkeazure:${{ github.sha }}
-      uses: docker/build-push-action@v1
-      with:
-        username: ${{ secrets.REGISTRY_USERNAME }}
-        password: ${{ secrets.REGISTRY_PASSWORD }}
-        repository: falkeregistry.azurecr.io/falkeazure
-        tag_with_ref: true
-        tag_with_sha: true
+      - uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.REGISTRY_USERNAME }}
+          password: ${{ secrets.REGISTRY_PASSWORD }}
+          repository: falkeregistry.azurecr.io/falkeazure
+          tag_with_ref: true
+          tag_with_sha: true
