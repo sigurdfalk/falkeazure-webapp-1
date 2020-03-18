@@ -13,14 +13,6 @@ jobs:
           java-version: 11
       - name: 'Build WebApp'
         run: mvn -U clean package
-#      - uses: azure/docker-login@v1
-#        with:
-#          login-server: falkeregistry.azurecr.io
-#          username: ${{ secrets.REGISTRY_USERNAME }}
-#          password: ${{ secrets.REGISTRY_PASSWORD }}
-#      - run: |
-#          docker build . -t falkeregistry.azurecr.io/falkeazure:${{ github.sha }}
-#          docker push falkeregistry.azurecr.io/falkeazure:${{ github.sha }}
       - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.REGISTRY_USERNAME }}
