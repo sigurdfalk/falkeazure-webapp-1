@@ -15,8 +15,8 @@ jobs:
         run: mvn -U clean package
       - uses: docker/build-push-action@v1
         with:
-          username: ${{ secrets.REGISTRY_USERNAME }}
-          password: ${{ secrets.REGISTRY_PASSWORD }}
+          username: ${{ secrets.AZ_SP_ID }}
+          password: ${{ secrets.AZ_SP_PASSWORD }}
           registry: falkeregistry.azurecr.io
           repository: falkeazure
           tag_with_ref: true
