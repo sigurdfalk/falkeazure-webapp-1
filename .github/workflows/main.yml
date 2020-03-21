@@ -13,7 +13,7 @@ jobs:
           creds: ${{ secrets.AZURE_CREDENTIALS2 }}
       - uses: Azure/get-keyvault-secrets@v1.0
         with:
-          keyvault: 'kv-falkeredet-core'
+          keyvault: 'falkekeyvault'
           secrets: 'acrSpClientId, acrSpClientSecret'
         id: getSecretAction
       - name: 'Set up JDK 11'
