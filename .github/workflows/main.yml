@@ -14,7 +14,7 @@ jobs:
       - uses: Azure/get-keyvault-secrets@v1.0
         with:
           keyvault: 'kv-falkeredet-core'
-          secrets: 'acrSpId, acrSpPassword'
+          secrets: 'acrSpClientId, acrSpClientSecret'
         id: getSecretAction
       - name: 'Set up JDK 11'
         uses: actions/setup-java@v1
@@ -24,8 +24,8 @@ jobs:
         run: mvn -U clean package
       - uses: docker/build-push-action@v1
         with:
-          username: ${{ steps.getSecretAction.outputs.acrSpId }}
-          password: ${{ steps.getSecretAction.outputs.acrSpPassword }}
+          username: ${{ steps.getSecretAction.outputs.acrSpClientId }}
+          password: ${{ steps.getSecretAction.outputs.acrSpClientSecret }}
           registry: falkeregistry.azurecr.io
           repository: falkeazure
           tag_with_ref: true
